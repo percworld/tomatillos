@@ -1,9 +1,9 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = ({ id, title, image }) => {
+const Movie = ({ image }) => {
     return (
-        <article className='filmCard'>
+        <article>
             <img className="mainCoverImage" src={image}/>
         </article> 
     )

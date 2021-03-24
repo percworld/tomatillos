@@ -1,4 +1,5 @@
 .mainCoverImage {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 0 .75em #808080;
 }

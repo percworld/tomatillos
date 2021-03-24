@@ -4,11 +4,13 @@ import './Header.css';
 const Header = () => {
     return (
         <header>
-            <h4>TOMATILLOS</h4>
-            <button>HOME</button>
-
-            <h4>PROFILE</h4>
-            <button>SEARCH</button>
+            <div>
+                <h4 className="site-title">TOMATILLOS</h4>
+            </div>
+            <div className="nav-btns">
+                <button>HOME</button>
+                <button>PROFILE</button>
+            </div>
         </header>
     )
 }
