@@ -1,12 +1,14 @@
 import React from 'react';
+import './Header.css';
 
 const Header = () => {
     return (
         <header>
+            <h4>TOMATILLOS</h4>
             <button>HOME</button>
-            <button>SEARCH</button>
 
-            <h1>PROFILE</h1>
+            <h4>PROFILE</h4>
+            <button>SEARCH</button>
         </header>
     )
 }
