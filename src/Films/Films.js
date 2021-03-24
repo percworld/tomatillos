@@ -9,9 +9,10 @@ const Films = ({films}) => {
             {films.movies.map(film => {
                 return (
                     <Movie 
+                        className="card"
                         key={film.id}
                         title={film.title}
-                        image={film.poster_path}
+                        backgroundImage={film.poster_path}
                     />
                 )
             })}

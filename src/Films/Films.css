@@ -1,0 +1,13 @@
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: darksalmon;
+}
+
+.filmCard {
+  font-size: 14px;
+  height: 20vh;
+  width: 30vw;
+}
