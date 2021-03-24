@@ -8,8 +8,9 @@ const Films = ({films}) => {
     
     return (
         <main>
-            <section>
+            <section className="top-container">
                 <img className="header-img" src={reel}></img>
+                <input className="search-bar" type={"text"} placeholder={"SEARCH"}></input>
             </section>
             <section className="gridDisplay">
                 {films.map(film => {

@@ -34,8 +34,3 @@ button:hover {
   color: #df0000;
   text-shadow: 0 0 .75em #808080;
 }
-
-.prof-btn {
-  display: flex; 
-  flex-direction: row;
-}
