@@ -6,13 +6,13 @@ const Films = ({films}) => {
     
     return (
         <section className="cardsContainer">
-            {films.movies.map(film => {
+            {films.map(film => {
                 return (
                     <Movie 
                         className="card"
                         key={film.id}
                         title={film.title}
-                        backgroundImage={film.poster_path}
+                        image={film.poster_path}
                     />
                 )
             })}

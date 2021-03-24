@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      films: movieData, 
+      films: movieData.movies, 
     }
   }
 
@@ -21,7 +21,6 @@ class App extends Component {
           <Header />
           <Films films={this.state.films}/>
           <Footer />
-
         </div>
       </div>
     );
