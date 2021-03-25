@@ -3,14 +3,16 @@ import Movie from '../Movie/Movie';
 import './Films.css';
 
 
-const Films = ({films}) => {
+const Films = ({films, showFeatured}) => {
     
     const movieCovers = films.map(film => {
         return (
             <Movie 
+                id={film.id}
                 key={film.id}
-                title={film.title}
+                // title={film.title}
                 image={film.poster_path}
+                showFeatured={showFeatured}
             />
         )
     })
