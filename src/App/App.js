@@ -16,13 +16,13 @@ class App extends Component {
   render() {
     
     return (
-      <div className="main">
+      <body className="main">
         <div className="contentWrap">
           <Header />
           <Films films={this.state.films}/>
           <Footer />
         </div>
-      </div>
+      </body>
     );
   }
 }

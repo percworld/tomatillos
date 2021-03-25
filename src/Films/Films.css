@@ -6,7 +6,39 @@
   background-color: darksalmon;
 }
 
-.filmCard {
-  height: 20vh;
-  width: 30vw;
+.gridDisplay {
+  margin: 5em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5em;
+}
+
+.top-container {
+  background-image: url("../movie-reel.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 70%;
+  width: 100%;
+  height: 300px; 
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  top: -200px; 
+  width: 40%;
+  height: 40px;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  margin-left: 40em;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #df0000;
+  height: 47px;
+  width: 7%;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-size: larger;
 }
