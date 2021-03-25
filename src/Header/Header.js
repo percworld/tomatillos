@@ -7,9 +7,9 @@ const Header = () => {
             <div>
                 <h4 className="site-title">TOMATILLOS</h4>
             </div>
-            <div className="nav-btns">
-                <button>HOME</button>
-                <button>PROFILE</button>
+            <div className="nav-btn-container">
+                <button className="nav-btn">HOME</button>
+                <button className="nav-btn">PROFILE</button>
             </div>
         </header>
     )

@@ -13,7 +13,7 @@ header {
   font-size: xxx-large;
 }
 
-.nav-btns {
+.nav-btn-container {
   display: flex; 
   flex-direction: row;
   justify-content: space-around;
@@ -21,7 +21,7 @@ header {
   margin-right: 5em; 
 }
 
-button {
+.nav-btn {
   background-color: transparent;
   color: white; 
   /* outline: none; */
@@ -30,7 +30,7 @@ button {
   font-weight: 700;
 }
 
-button:hover {
+.nav-btn:hover {
   color: #df0000;
   text-shadow: 0 0 .75em #808080;
 }

@@ -24,16 +24,21 @@
   align-items: center;
 }
 
-.header-img {
-  height: 300px; 
-  box-shadow: 0 0 .75em #808080;
-}
-
 .search-bar {
   top: -200px; 
   width: 40%;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   text-align: center;
   margin-left: 40em;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #df0000;
+  height: 47px;
+  width: 7%;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-size: larger;
 }
