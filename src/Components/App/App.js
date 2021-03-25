@@ -3,7 +3,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
-import movieData from '../data';
+import movieData from '../../data';
 
 class App extends Component {
   constructor() {

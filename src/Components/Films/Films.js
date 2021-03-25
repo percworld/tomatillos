@@ -1,11 +1,20 @@
 import React from 'react';
 import Movie from '../Movie/Movie';
 import './Films.css';
-import reel from '../movie-reel.jpeg'; 
 
 
 const Films = ({films}) => {
     
+    const movieCovers = films.map(film => {
+        return (
+            <Movie 
+                key={film.id}
+                title={film.title}
+                image={film.poster_path}
+            />
+        )
+    })
+
     return (
         <main>
             <section className="top-container">
@@ -13,15 +22,7 @@ const Films = ({films}) => {
                 <button className="submit-btn">Submit</button>
             </section>
             <section className="gridDisplay">
-                {films.map(film => {
-                    return (
-                        <Movie 
-                            key={film.id}
-                            title={film.title}
-                            image={film.poster_path}
-                        />
-                    )
-                })}
+                {movieCovers}
             </section>
         </main>
         
