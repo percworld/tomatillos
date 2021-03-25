@@ -9,7 +9,7 @@ const Films = ({films}) => {
     return (
         <main>
             <section className="top-container">
-                <img className="header-img" src={reel}></img>
+                {/* <img className="header-img" src={reel}></img> */}
                 <input className="search-bar" type={"text"} placeholder={"SEARCH"}></input>
             </section>
             <section className="gridDisplay">
