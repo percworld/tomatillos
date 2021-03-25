@@ -1,23 +1,14 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({  }) => [
-    
+const MovieDetails = () => {
     return (
         <section>
-            <div MOVIE COVER >
-                <img></img>
-            </div>
-            <div DETAILS SECTION>
-                title
-                tagline
-                [rating, genre, time]
-                overview
-                [budget, revenue][release date]
-            </div>
+            <h1>Hello</h1>
         </section>
     )
-]
+}
+
 
 
 export default MovieDetails; 
