@@ -1,9 +1,9 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = ({ image }) => {
+const Movie = ({id, image, showFeatured }) => {
     return (
-        <article>
+        <article onClick={() => showFeatured(id)}>
             <img className="mainCoverImage" src={image}/>
         </article> 
     )
