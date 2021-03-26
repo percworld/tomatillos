@@ -28,7 +28,7 @@ class App extends Component {
   showFeatured = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(response => response.json())
-    .then(response => this.setState({featuredFilm: response}))
+    .then(response => this.setState({featuredFilm: response.movie}))
     .catch (error => this.showError(error.message))
   }
 
