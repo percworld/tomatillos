@@ -39,6 +39,7 @@ class App extends Component {
 
   showHome = () => {
     this.setState({ featuredFilm: null });
+    this.componentDidMount();
   }
 
   handleSearchEntry = event => {
@@ -47,13 +48,16 @@ class App extends Component {
 
   searchByWord = event => {
     event.preventDefault();
-    // const filteredMovies = () => {
-    //   //Julia Imma stop and wait for benefit great nation
-    //   // we will need to filter this.films.movies for each
-    //   // Title that includes the entered word 
-    // }
-    console.log(this.state.searchField)
+    const splitString = this.state.searchField.split(' ');
+    //console.log(this.state.films);
 
+    const filteredMovies = this.state.films.filter(movie => {
+      const titleArray = movie.title.toLowerCase().split(' ')
+      return splitString.find(word => titleArray.includes(word.toLowerCase()))
+    })
+    console.log(filteredMovies);
+    //console.log(this.state.searchField)
+    this.setState({ films: filteredMovies })
   }
 
   render() {
