@@ -24,9 +24,9 @@ class App extends Component {
   }
 
   showError() {
-    <article className={'error'}>
+    <article className="error">
       This movie is not currently available. Click below to confirm
-      <button onClick={() => this.showHome()} />
+      <button onClick={this.showHome} />
     </article>
   }
 
