@@ -6,7 +6,7 @@ const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
         <section className="top-container">
             <input className="search-bar"
                 type={"text"}
-                placeholder={"SEARCH"}
+                placeholder={"SEARCH TITLES"}
                 name={"searchField"}
                 value={searchField}
                 onChange={event => handleSearchEntry(event)}

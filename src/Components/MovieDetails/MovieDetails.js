@@ -46,6 +46,7 @@ const MovieDetails = ({ film, showHome }) => {
                 <div>
                     <div className="backArrow" onClick={showHome}>
                         <FaArrowAltCircleLeft />
+                        <h6 className="go-back" >Go Back</h6>
                     </div>
                 </div>
             </div>

@@ -77,7 +77,14 @@
     justify-content: center;
 }
 
+.go-back {  
+    padding-top: 6px;
+    margin: 0 0 0 20px;
+}
+
 .backArrow {
-    height: 60px;
-    width: 60px;
+    display: flex;
+    justify-content: baseline;
+    font-size: xxx-large;
+    position: relative;
 }

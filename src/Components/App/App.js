@@ -49,14 +49,10 @@ class App extends Component {
   searchByWord = event => {
     event.preventDefault();
     const splitString = this.state.searchField.split(' ');
-    //console.log(this.state.films);
-
     const filteredMovies = this.state.films.filter(movie => {
       const titleArray = movie.title.toLowerCase().split(' ')
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
-    console.log(filteredMovies);
-    //console.log(this.state.searchField)
     this.setState({ films: filteredMovies })
   }
 
