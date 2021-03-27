@@ -19,3 +19,8 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.backArrow {
+    height: 60px;
+    width: 60px;
+}
