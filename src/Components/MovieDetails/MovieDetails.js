@@ -16,19 +16,23 @@ const MovieDetails = ({ film }) => {
                 <h1 className='title'>{title}</h1>
                 <h4 className='tagline'>"{tagline}"</h4>
                 <div className='row specs-box'>
-                    <FaStar />
-                    <p>{roundedRating}</p>
-                    {/* <p>{genres}</p> */}
-                    <FaClock />
-                    <p>{runtime} min</p>
+                    <div className='row '>
+                        <FaStar />
+                        <p className='left-margin'>{roundedRating}</p>
+                    </div>
+                    <div className='row'>
+                        {/* <p>{genres}</p> */}
+                        <FaClock />
+                        <p className='left-margin'>{runtime} min</p>
+                    </div>
                 </div>
                 <h3 className='overview'>{overview}</h3>
-                <div>
-                    <div>
+                <div className='bottom-row'>
+                    <div className='small-specs-box'>
                         <p>{budget}</p>
                         <p>{revenue}</p>
                     </div>
-                    <div><h4>{release_date}</h4></div>
+                    <div className='small-specs-box'><h4>{release_date}</h4></div>
                 </div>
             </div>
         </section>
