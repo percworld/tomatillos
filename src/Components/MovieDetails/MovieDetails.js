@@ -19,7 +19,7 @@ const MovieDetails = ({ film, showHome }) => {
     return (
         <section className='movie-details-container'>
             <div className='cover-container'>
-                <img className='featured-cover' src={poster_path} />
+                <img className='featured-cover' src={poster_path} alt="Movie Poster" />
             </div>
             <div className='movie-descrip-container'>
                 <h1 className='title'>{title}</h1>

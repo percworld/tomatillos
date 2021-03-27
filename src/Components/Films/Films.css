@@ -13,31 +13,3 @@
   grid-gap: 1.5em;
 }
 
-.top-container {
-  background-image: url("./movie-reel.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 70%;
-  width: 100%;
-  height: 300px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-bar {
-  width: 40%;
-  height: 40px;
-  border-radius: 10px 0 0 10px;
-  text-align: center;
-}
-
-.submit-btn {
-  border: none;
-  background-color: #df0000;
-  height: 47px;
-  width: 7%;
-  border-radius: 0 10px 10px 0;
-  color: white;
-  font-size: larger;
-}
