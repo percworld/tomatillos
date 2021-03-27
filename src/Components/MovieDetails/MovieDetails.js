@@ -1,9 +1,20 @@
 import React from 'react';
 import './MovieDetails.css';
+import { FaArrowAltCircleLeft } from 'react-icons/fa'
+
 
 const MovieDetails = ({ film }) => {
 
     const { id, title, poster_path, average_rating, budget, genres, overview, release_date, revenue, runtime, tagline } = film;
+
+    const formatDate = inputDate => {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        let date = new Date(inputDate);
+        return monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    }
+
+    const numberFormat = new Intl.NumberFormat('en-US');
 
     return (
         <section className='movie-details-container'>
@@ -21,14 +32,18 @@ const MovieDetails = ({ film }) => {
                 <h5>{overview}</h5>
                 <div>
                     <div>
-                        <p>{budget}</p>
-                        <p>{revenue}</p>
+                        <p>Budget: ${numberFormat.format(budget)}</p>
+                        <p>Revenue: ${numberFormat.format(revenue)}</p>
                     </div>
-                    <div><h4>{release_date}</h4></div>
+                    <div><h4>Release Date: {formatDate(release_date)}</h4></div>
                 </div>
+                <div className="backArrow">
+                    <FaArrowAltCircleLeft />
+                </div>
+
             </div>
         </section>
     )
 }
 
-export default MovieDetails; 
+export default MovieDetails;
