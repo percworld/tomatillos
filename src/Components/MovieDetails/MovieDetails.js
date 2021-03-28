@@ -23,7 +23,7 @@ const MovieDetails = ({ film, showHome }) => {
             </div>
             <div className='movie-descrip-container'>
                 <h1 className='title'>{title}</h1>
-                <h4 className='tagline'>"{tagline}"</h4>
+                {tagline.length > 0 && <h4 className='tagline'>"{tagline}"</h4>}
                 <div className='row specs-box'>
                     <div className='row '>
                         <FaStar />
