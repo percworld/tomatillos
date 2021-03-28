@@ -4,13 +4,14 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import { FaArrowAltCircleLeft } from 'react-icons/fa'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       films: [],
-      error: null,
+      error: '',
       featuredFilm: null,
       searchField: ''
     }
@@ -18,20 +19,27 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then(response => response.json())
+      .then(response => {
+        if(response.ok){
+          return response.json()
+        } else {
+          throw new Error('This isnt working')
+        }
+      })
       .then(response => this.setState({ films: response.movies }))
       .catch(error => this.setState({ error: error }))
   }
 
-  showError() {
-    
+  showError({showHome}) {
       return (
         <article className="error">
-          Sorry something went wrong - please reload the page. 
-          <button onClick={this.showHome} />
+          <h2>Sorry something went wrong - please reload the page.</h2>
+          <div className="backArrow" onClick={showHome}>
+            <FaArrowAltCircleLeft />
+            <h6 className="go-back" >Go Back</h6>
+          </div>
         </article>
       )
-
   }
 
   showFeatured = (id) => {
@@ -60,7 +68,7 @@ class App extends Component {
     this.setState({ films: filteredMovies })
     this.state.searchField = ''; 
     if(filteredMovies.length < 1){
-      this.showError(); 
+      console.log('Oh no, there are no movies with that title!')
     }
   }
 
@@ -68,22 +76,21 @@ class App extends Component {
 
     return (
       <div className="main">
-        <div className="contentWrap">
-          <Header showHome={this.showHome} />
-          {this.state.error && this.showError()}
-          {!this.state.featuredFilm &&
-            <Films films={this.state.films}
-              searchField={this.state.searchField}
-              showFeatured={this.showFeatured}
-              handleSearchEntry={this.handleSearchEntry}
-              searchByWord={this.searchByWord}
-            />
-          }
-          {this.state.featuredFilm &&
-            <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
-          }
-          <Footer />
-        </div>
+        <Header showHome={this.showHome} />
+        {this.state.error = 'this fake error'}
+        {this.state.error && this.showError(this.showHome)}
+        {!this.state.featuredFilm &&
+          <Films films={this.state.films}
+            searchField={this.state.searchField}
+            showFeatured={this.showFeatured}
+            handleSearchEntry={this.handleSearchEntry}
+            searchByWord={this.searchByWord}
+          />
+        }
+        {this.state.featuredFilm &&
+          <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
+        }
+        <Footer />
       </div>
     );
   }
