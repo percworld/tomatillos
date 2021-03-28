@@ -24,23 +24,14 @@ class App extends Component {
   }
 
   showError() {
-
-    if(this.state.error.status > 499) {
+    
       return (
-      <article className="error">
-      Sorry something went wrong - please reload the page. 
-      <button onClick={this.showHome} />
-    </article>
+        <article className="error">
+          Sorry something went wrong - please reload the page. 
+          <button onClick={this.showHome} />
+        </article>
       )
-    } 
-    // else if (this.state.error.status < 500 && this.state.error.status > )
 
-
-
-    // <article className="error">
-    //   This movie is not currently available. Click below to confirm
-    //   <button onClick={this.showHome} />
-    // </article>
   }
 
   showFeatured = (id) => {
@@ -68,7 +59,9 @@ class App extends Component {
     })
     this.setState({ films: filteredMovies })
     this.state.searchField = ''; 
-    console.log(this.state.searchField)
+    if(filteredMovies.length < 1){
+      this.showError(); 
+    }
   }
 
   render() {
