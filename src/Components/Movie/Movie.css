@@ -3,3 +3,12 @@
   width: 100%;
   box-shadow: 0 0 .75em #808080;
 }
+
+.movie {
+  transition: all .3s ease-in-out;
+  transition-delay: .2s;
+}
+
+.movie:hover {
+  transform: scale(1.2);
+}
