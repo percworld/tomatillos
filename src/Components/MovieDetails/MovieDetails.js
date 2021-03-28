@@ -41,7 +41,7 @@ const MovieDetails = ({ film, showHome }) => {
                         <p>Budget: ${numberFormat.format(budget)}</p>
                         <p>Revenue: ${numberFormat.format(revenue)}</p>
                     </div>
-                    <div className='small-specs-box'><h4>Release Date: {formatDate(release_date)}</h4></div>
+                    <div className='small-specs-box'><h4>Release Date: <br/>{formatDate(release_date)}</h4></div>
                 </div>
                 <div>
                     <div className="backArrow" onClick={showHome}>
