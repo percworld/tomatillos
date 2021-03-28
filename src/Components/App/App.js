@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       films: [],
-      hasError: null,
+      error: null,
       featuredFilm: null,
       searchField: ''
     }
@@ -20,21 +20,25 @@ class App extends Component {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then(response => response.json())
       .then(response => this.setState({ films: response.movies }))
-      .catch(error => this.setState({ hasError: error }))
+      .catch(error => this.setState({ error: error }))
   }
 
   showError() {
-    <article className="error">
-      This movie is not currently available. Click below to confirm
-      <button onClick={this.showHome} />
-    </article>
+    
+      return (
+        <article className="error">
+          Sorry something went wrong - please reload the page. 
+          <button onClick={this.showHome} />
+        </article>
+      )
+
   }
 
   showFeatured = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
       .then(response => this.setState({ featuredFilm: response.movie }))
-      .catch(error => this.setState({ hasError: error }))
+      .catch(error => this.setState({ error: error }))
   }
 
   showHome = () => {
@@ -54,6 +58,10 @@ class App extends Component {
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
     this.setState({ films: filteredMovies })
+    this.state.searchField = ''; 
+    if(filteredMovies.length < 1){
+      this.showError(); 
+    }
   }
 
   render() {
@@ -62,7 +70,7 @@ class App extends Component {
       <div className="main">
         <div className="contentWrap">
           <Header showHome={this.showHome} />
-          {this.state.hasError && this.showError()}
+          {this.state.error && this.showError()}
           {!this.state.featuredFilm &&
             <Films films={this.state.films}
               searchField={this.state.searchField}
