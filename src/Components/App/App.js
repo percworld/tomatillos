@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Link
+} from 'react-router-dom'; 
 import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -75,22 +81,33 @@ class App extends Component {
   render() {
 
     return (
-      <div className="main">
-        <Header showHome={this.showHome} />
-        {this.state.error && this.showError(this.showHome)}
-        {!this.state.featuredFilm &&
-          <Films films={this.state.films}
-            searchField={this.state.searchField}
-            showFeatured={this.showFeatured}
-            handleSearchEntry={this.handleSearchEntry}
-            searchByWord={this.searchByWord}
-          />
-        }
-        {this.state.featuredFilm &&
-          <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
-        }
-        <Footer />
-      </div>
+      <Router>
+        <div className="main">
+          <Header showHome={this.showHome} />
+          {this.state.error && this.showError(this.showHome)}
+          
+          <Link to="/">Home</Link>
+          <Link to="/:id">Movie Details</Link>
+
+          <Switch>
+            <Route exact path="/" 
+            render={() => {
+              !this.state.featuredFilm &&
+                <Films films={this.state.films}
+                searchField={this.state.searchField}
+                showFeatured={this.showFeatured}
+                handleSearchEntry={this.handleSearchEntry}
+                searchByWord={this.searchByWord}
+            />
+             }}/>
+            <Route path="/:id" render={
+              this.state.featuredFilm &&
+               <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
+            }/>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
