@@ -77,7 +77,6 @@ class App extends Component {
     return (
       <div className="main">
         <Header showHome={this.showHome} />
-        {this.state.error = 'this fake error'}
         {this.state.error && this.showError(this.showHome)}
         {!this.state.featuredFilm &&
           <Films films={this.state.films}
