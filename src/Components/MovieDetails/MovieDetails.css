@@ -106,7 +106,12 @@
     }
     
     .title {
+        font-size: 4em;
         margin: 0 0 30px 0; 
+    }
+
+    .specs-box, .bottom-row, .row {
+        font-size: x-large;
     }
 
     .bottom-row {
