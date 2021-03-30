@@ -35,7 +35,6 @@ header {
 .nav-btn {
   background-color: transparent;
   color: white; 
-  /* outline: none; */
   border: none;
   font-size: x-large;
   font-weight: 700;
@@ -44,4 +43,12 @@ header {
 .nav-btn:hover {
   color: #df0000;
   text-shadow: 0 0 .75em #808080;
+}
+
+@media screen and (max-width: 600px) {
+
+  .site-title {
+    display: none;
+  }
+
 }
