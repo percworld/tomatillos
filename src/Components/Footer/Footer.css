@@ -9,3 +9,12 @@ footer {
     background-color: rgb(35, 40, 88);
     box-shadow: 0 0 .75em #808080;
 }
+
+
+@media screen and (max-width: 600px) {
+ 
+    footer {
+        position: relative;
+    }
+
+  }

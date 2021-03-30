@@ -1,7 +1,6 @@
 
 .movie-details-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     color: white; 
     margin: 3em; 
@@ -91,3 +90,67 @@
     font-size: xxx-large;
     position: relative;
 }
+
+@media screen and (max-width: 1100px) {
+
+    .movie-details-container {
+        margin: 1.5em; 
+    }
+
+    .cover-container {
+        margin: 3em 0 0 0; 
+    }
+
+    .movie-descrip-container {
+        margin: 2em 0 2em 2em;
+    }
+    
+    .title {
+        font-size: 4em;
+        margin: 0 0 30px 0; 
+    }
+
+    .specs-box, .bottom-row, .row {
+        font-size: x-large;
+    }
+
+    .bottom-row {
+        width: 100%;
+    }
+
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+
+    .movie-details-container {
+        flex-direction: column;
+    }
+
+    .cover-container {
+        width: 100%;
+        margin: 0; 
+    }
+
+    .movie-descrip-container {
+        width: 100%;
+        margin: 0; 
+    }
+
+    .title {
+        font-size: 3.5em;
+        margin: 20px 0; 
+    }
+
+    .specs-box, .bottom-row, .row {
+        font-size: large;
+    }
+
+    .small-specs-box {
+        height: auto;
+    }
+
+    .backArrow {
+        margin: 20px;
+    }
+  }

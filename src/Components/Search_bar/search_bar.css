@@ -26,3 +26,17 @@
   color: white;
   font-size: larger;
 }
+
+
+@media screen and (max-width: 1100px) {
+  
+  .top-container {
+    height: 230px;
+  }
+
+  .submit-btn {
+    width: fit-content;
+    height: 44px;
+  }
+
+}
