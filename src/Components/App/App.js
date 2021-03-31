@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'; 
 import './App.css';
+import { getData } from '../../utilities.js'; 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { FaArrowAltCircleLeft } from 'react-icons/fa'
+import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 class App extends Component {
   constructor() {
@@ -19,17 +20,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then(response => {
-        if(response.ok){
-          return response.json()
-        } else {
-          throw new Error('This isnt working')
-        }
-      })
+      getData()
       .then(response => this.setState({ films: response.movies }))
       .catch(error => this.setState({ error: error }))
   }
+  
+    showFeatured = (id) => {
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        .then(response => response.json())
+        .then(response => this.setState({ featuredFilm: response.movie }))
+        .catch(error => this.setState({ error: error }))
+    }
 
   showError() {
       return (
@@ -41,13 +42,6 @@ class App extends Component {
           </div></Link>
         </article>
       )
-  }
-
-  showFeatured = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      .then(response => this.setState({ featuredFilm: response.movie }))
-      .catch(error => this.setState({ error: error }))
   }
 
   handleSearchEntry = event => {
