@@ -3,10 +3,9 @@ import './MovieDetails.css';
 import { FaClock } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 import { FaArrowAltCircleLeft } from 'react-icons/fa'
-import { Link } from 'react-router-dom'; 
 
 
-const MovieDetails = ({ film }) => {
+const MovieDetails = ({ film, showHome }) => {
     const { title, poster_path, average_rating, budget, overview, release_date, revenue, runtime, tagline } = film;
     const numberFormat = new Intl.NumberFormat('en-US');
     const roundedRating = Math.floor(average_rating * 100) / 100
@@ -45,10 +44,10 @@ const MovieDetails = ({ film }) => {
                     <div className='small-specs-box'><h4>Release Date: <br/>{formatDate(release_date)}</h4></div>
                 </div>
                 <div>
-                    <Link to='/' style={{ textDecoration: 'none' }}><div className="backArrow">
+                    <div className="backArrow" onClick={showHome}>
                         <FaArrowAltCircleLeft />
-                        <h6 className="go-back" >Go Back</h6></div>
-                    </Link>
+                        <h6 className="go-back" >Go Back</h6>
+                    </div>
                 </div>
             </div>
         </section>
