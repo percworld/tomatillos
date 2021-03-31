@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router, 
+import { 
   Switch, 
   Route, 
   Link
@@ -40,10 +39,10 @@ class App extends Component {
       return (
         <article className="error">
           <h2>Sorry something went wrong - please reload the page.</h2>
-          <div className="backArrow" onClick={showHome}>
+          {/* <div className="backArrow" onClick={showHome}>
             <FaArrowAltCircleLeft />
             <h6 className="go-back" >Go Back</h6>
-          </div>
+          </div> */}
         </article>
       )
   }
@@ -81,33 +80,26 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
         <div className="main">
           <Header showHome={this.showHome} />
-          {this.state.error && this.showError(this.showHome)}
-          
-          <Link to="/">Home</Link>
-          <Link to="/:id">Movie Details</Link>
-
-          <Switch>
-            <Route exact path="/" 
-            render={() => {
-              !this.state.featuredFilm &&
-                <Films films={this.state.films}
-                searchField={this.state.searchField}
-                showFeatured={this.showFeatured}
-                handleSearchEntry={this.handleSearchEntry}
-                searchByWord={this.searchByWord}
-            />
-             }}/>
-            <Route path="/:id" render={
-              this.state.featuredFilm &&
-               <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
-            }/>
-          </Switch>
+            <Switch>
+              <Route exact path="/" 
+              render={() => (
+                !this.state.error ? 
+                  <Films films={this.state.films}
+                  searchField={this.state.searchField}
+                  showFeatured={this.showFeatured}
+                  handleSearchEntry={this.handleSearchEntry}
+                  searchByWord={this.searchByWord}
+              /> : this.showError(this.showHome)
+              )}/>
+              <Route path="/:id" render={() => (
+                this.state.featuredFilm &&
+                <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />)
+              }/>
+            </Switch>
           <Footer />
         </div>
-      </Router>
     );
   }
 }
