@@ -15,7 +15,6 @@ const Films = ({ films, showFeatured, handleSearchEntry, searchByWord, searchFie
         )
     })
 
-
     return (
         <main>
             <Searchbar handleSearchEntry={handleSearchEntry} searchByWord={searchByWord} searchField={searchField} />
@@ -23,7 +22,6 @@ const Films = ({ films, showFeatured, handleSearchEntry, searchByWord, searchFie
                 {movieCovers}
             </section>
         </main >
-
     )
 }
 

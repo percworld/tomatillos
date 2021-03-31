@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { 
-  Switch, 
-  Route, 
-  Link
-} from 'react-router-dom'; 
+import { Switch, Route, Link } from 'react-router-dom'; 
 import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -35,14 +31,14 @@ class App extends Component {
       .catch(error => this.setState({ error: error }))
   }
 
-  showError({showHome}) {
+  showError() {
       return (
         <article className="error">
           <h2>Sorry something went wrong - please reload the page.</h2>
-          {/* <div className="backArrow" onClick={showHome}>
+          <Link to='/'><div className="backArrow">
             <FaArrowAltCircleLeft />
-            <h6 className="go-back" >Go Back</h6>
-          </div> */}
+            <h6 className="go-back" >Go Home</h6>
+          </div></Link>
         </article>
       )
   }
@@ -52,11 +48,6 @@ class App extends Component {
       .then(response => response.json())
       .then(response => this.setState({ featuredFilm: response.movie }))
       .catch(error => this.setState({ error: error }))
-  }
-
-  showHome = () => {
-    this.setState({ featuredFilm: null });
-    this.componentDidMount();
   }
 
   handleSearchEntry = event => {
@@ -81,7 +72,7 @@ class App extends Component {
 
     return (
         <div className="main">
-          <Header showHome={this.showHome} />
+          <Header />
           <Switch>
               <Route exact path="/" 
               render={() => (
@@ -91,11 +82,11 @@ class App extends Component {
                   showFeatured={this.showFeatured}
                   handleSearchEntry={this.handleSearchEntry}
                   searchByWord={this.searchByWord}
-              /> : this.showError(this.showHome)
+              /> : this.showError()
               )}/>
               <Route path="/:id" render={() => (
                 this.state.featuredFilm &&
-                <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />)
+                <MovieDetails film={this.state.featuredFilm}/>)
               }/>
             </Switch>
           <Footer />

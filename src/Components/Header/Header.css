@@ -32,10 +32,13 @@ header {
   margin-right: 5em; 
 }
 
+.home {
+  margin-top: 36px;
+}
+
 .nav-btn {
   background-color: transparent;
   color: white; 
-  /* outline: none; */
   border: none;
   font-size: x-large;
   font-weight: 700;

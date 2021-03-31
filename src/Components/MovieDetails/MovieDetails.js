@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const MovieDetails = ({ film }) => {
     const { title, poster_path, average_rating, budget, overview, release_date, revenue, runtime, tagline } = film;
     const numberFormat = new Intl.NumberFormat('en-US');
-    const roundedRating = Math.floor(average_rating * 100) / 100
+    const roundedRating = Math.round(average_rating)
     const formatDate = inputDate => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
@@ -28,7 +28,7 @@ const MovieDetails = ({ film }) => {
                 <div className='row specs-box'>
                     <div className='row '>
                         <FaStar />
-                        <p className='left-margin'>{roundedRating}</p>
+                        <p className='left-margin'>{roundedRating}/10</p>
                     </div>
                     <div className='row'>
                         <FaClock />
