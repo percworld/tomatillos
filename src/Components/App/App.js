@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'; 
 import './App.css';
-import { getData } from '../../utilities.js'; 
+import { getData, getMovie } from '../../utilities.js'; 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
@@ -25,12 +25,11 @@ class App extends Component {
       .catch(error => this.setState({ error: error }))
   }
   
-    showFeatured = (id) => {
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-        .then(response => response.json())
-        .then(response => this.setState({ featuredFilm: response.movie }))
-        .catch(error => this.setState({ error: error }))
-    }
+  showFeatured = (id) => {
+    getMovie(id)
+      .then(response => this.setState({ featuredFilm: response.movie }))
+      .catch(error => this.setState({ error: error }))
+  }
 
   showError() {
       return (
@@ -76,7 +75,7 @@ class App extends Component {
                   showFeatured={this.showFeatured}
                   handleSearchEntry={this.handleSearchEntry}
                   searchByWord={this.searchByWord}
-              /> : this.showError()
+              /> : this.showError() 
               )}/>
               <Route path="/:id" render={() => (
                 this.state.featuredFilm &&
