@@ -48,3 +48,11 @@ header {
   color: #df0000;
   text-shadow: 0 0 .75em #808080;
 }
+
+@media screen and (max-width: 600px) {
+
+  .site-title {
+    display: none;
+  }
+
+}
