@@ -3,7 +3,7 @@ import './search_bar.css';
 
 const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
     return (
-        <section className="top-container">
+        <form className="top-container">
             <input className="search-bar"
                 type={"text"}
                 placeholder={"SEARCH TITLES"}
@@ -12,7 +12,7 @@ const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
                 onChange={event => handleSearchEntry(event)}
             ></input>
             <button className="submit-btn" onClick={event => searchByWord(event)}>Submit</button>
-        </section>
+        </form>
     )
 }
 export default Searchbar;

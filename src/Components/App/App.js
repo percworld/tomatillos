@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Switch, Route, Link } from 'react-router-dom'; 
 import './App.css';
+import { getData, getMovie } from '../../utilities.js'; 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { FaArrowAltCircleLeft } from 'react-icons/fa'
+import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 class App extends Component {
   constructor() {
@@ -18,40 +20,27 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then(response => {
-        if(response.ok){
-          return response.json()
-        } else {
-          throw new Error('This isnt working')
-        }
-      })
+      getData()
       .then(response => this.setState({ films: response.movies }))
       .catch(error => this.setState({ error: error }))
   }
-
-  showError({showHome}) {
-      return (
-        <article className="error">
-          <h2>Sorry something went wrong - please reload the page.</h2>
-          <div className="backArrow" onClick={showHome}>
-            <FaArrowAltCircleLeft />
-            <h6 className="go-back" >Go Back</h6>
-          </div>
-        </article>
-      )
-  }
-
+  
   showFeatured = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
+    getMovie(id)
       .then(response => this.setState({ featuredFilm: response.movie }))
       .catch(error => this.setState({ error: error }))
   }
 
-  showHome = () => {
-    this.setState({ featuredFilm: null });
-    this.componentDidMount();
+  showError() {
+      return (
+        <article className="error">
+          <h2>Sorry something went wrong - please reload the page.</h2>
+          <Link to='/'><div className="backArrow">
+            <FaArrowAltCircleLeft />
+            <h6 className="go-back" >Go Home</h6>
+          </div></Link>
+        </article>
+      )
   }
 
   handleSearchEntry = event => {
@@ -75,22 +64,26 @@ class App extends Component {
   render() {
 
     return (
-      <div className="main">
-        <Header showHome={this.showHome} />
-        {this.state.error && this.showError(this.showHome)}
-        {!this.state.featuredFilm &&
-          <Films films={this.state.films}
-            searchField={this.state.searchField}
-            showFeatured={this.showFeatured}
-            handleSearchEntry={this.handleSearchEntry}
-            searchByWord={this.searchByWord}
-          />
-        }
-        {this.state.featuredFilm &&
-          <MovieDetails film={this.state.featuredFilm} showHome={this.showHome} />
-        }
-        <Footer />
-      </div>
+        <div className="main">
+          <Header />
+          <Switch>
+              <Route exact path="/" 
+              render={() => (
+                !this.state.error ? 
+                  <Films films={this.state.films}
+                  searchField={this.state.searchField}
+                  showFeatured={this.showFeatured}
+                  handleSearchEntry={this.handleSearchEntry}
+                  searchByWord={this.searchByWord}
+              /> : this.showError() 
+              )}/>
+              <Route path="/:id" render={() => (
+                this.state.featuredFilm &&
+                <MovieDetails film={this.state.featuredFilm}/>)
+              }/>
+            </Switch>
+          <Footer />
+        </div>
     );
   }
 }

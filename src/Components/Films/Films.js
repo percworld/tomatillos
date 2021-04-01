@@ -9,13 +9,11 @@ const Films = ({ films, showFeatured, handleSearchEntry, searchByWord, searchFie
             <Movie
                 id={film.id}
                 key={film.id}
-                // title={film.title}
                 image={film.poster_path}
                 showFeatured={showFeatured}
             />
         )
     })
-
 
     return (
         <main>
@@ -24,7 +22,6 @@ const Films = ({ films, showFeatured, handleSearchEntry, searchByWord, searchFie
                 {movieCovers}
             </section>
         </main >
-
     )
 }
 
