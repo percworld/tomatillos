@@ -1,35 +1,15 @@
 
 describe('response check', () => {
-    // const movie = {
-    //     "movie": {
-    //         "id": 581392,
-    //         "title": "Peninsula",
-    //         "poster_path": "https://image.tmdb.org/t/p/original//sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
-    //         "backdrop_path": "https://image.tmdb.org/t/p/original//gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
-    //         "release_date": "2020-07-15",
-    //         "overview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
-    //         "genres": [
-    //             "Action",
-    //             "Horror",
-    //             "Thriller"
-    //         ],
-    //         "budget": 17000000,
-    //         "revenue": 35878266,
-    //         "runtime": 114,
-    //         "tagline": "Escape The Apocalypse",
-    //         "average_rating": 7
-    //     }
-    // }
     it('should get all movies data upon request', () => {
         cy.visit('http://localhost:3000/')
         cy.intercept('/', { fixture: "test_films.js" })
-        cy.get(".mainCoverImage")//.should('have.css')
+        cy.get(".mainCoverImage")
 
     })
 
     it('should get movie data upon request', () => {
 
-        cy.intercept('/581392', { fixture: "test_movie.js" })
+        cy.intercept('/581392', { fixture: "test_movie.js" }).get('.mainCoverImage')
     })
 })
 describe('As a user', () => {
@@ -43,6 +23,7 @@ describe('As a user', () => {
 
     it('executes a movie search', () => {
         cy.get('input[type=text]').type('rogue')
+            .wait(100)
             .should('have.value', 'rogue')
             .get(".submit-btn").click()
         cy.get(".mainCoverImage").click()
