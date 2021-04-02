@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom'; 
+import { Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import { getData, getMovie } from '../../utilities.js'; 
+import { getData, getMovie } from '../../utilities.js';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
@@ -20,11 +20,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-      getData()
+    getData()
       .then(response => this.setState({ films: response.movies }))
       .catch(error => this.setState({ error: error }))
   }
-  
+
   showFeatured = (id) => {
     getMovie(id)
       .then(response => this.setState({ featuredFilm: response.movie }))
@@ -32,15 +32,15 @@ class App extends Component {
   }
 
   showError() {
-      return (
-        <article className="error">
-          <h2>Sorry something went wrong - please reload the page.</h2>
-          <Link to='/'><div className="backArrow">
-            <FaArrowAltCircleLeft />
-            <h6 className="go-back" >Go Home</h6>
-          </div></Link>
-        </article>
-      )
+    return (
+      <article className="error">
+        <h2>Sorry something went wrong - please reload the page.</h2>
+        <Link to='/'><div className="backArrow">
+          <FaArrowAltCircleLeft />
+          <h6 className="go-back" >Go Home</h6>
+        </div></Link>
+      </article>
+    )
   }
 
   handleSearchEntry = event => {
@@ -55,8 +55,8 @@ class App extends Component {
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
     this.setState({ films: filteredMovies })
-    this.state.searchField = ''; 
-    if(filteredMovies.length < 1){
+    this.state.searchField = '';
+    if (filteredMovies.length < 1) {
       console.log('Oh no, there are no movies with that title!')
     }
   }
@@ -64,26 +64,26 @@ class App extends Component {
   render() {
 
     return (
-        <div className="main">
-          <Header />
-          <Switch>
-              <Route exact path="/" 
-              render={() => (
-                !this.state.error ? 
-                  <Films films={this.state.films}
+      <div className="main">
+        <Header />
+        <Switch>
+          <Route exact path="/"
+            render={() => (
+              !this.state.error ?
+                <Films films={this.state.films}
                   searchField={this.state.searchField}
                   showFeatured={this.showFeatured}
                   handleSearchEntry={this.handleSearchEntry}
                   searchByWord={this.searchByWord}
-              /> : this.showError() 
-              )}/>
-              <Route path="/:id" render={() => (
-                this.state.featuredFilm &&
-                <MovieDetails film={this.state.featuredFilm}/>)
-              }/>
-            </Switch>
-          <Footer />
-        </div>
+                /> : this.showError()
+            )} />
+          <Route path="/:id" render={() => (
+            this.state.featuredFilm &&
+            <MovieDetails film={this.state.featuredFilm} />)
+          } />
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }

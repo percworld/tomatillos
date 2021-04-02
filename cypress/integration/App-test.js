@@ -1,16 +1,36 @@
+
 describe('response check', () => {
-    // it('should get movie data upon fetch', () => {
-    //     cy.intercept({
-    //         method: 'GET',
-    //         url: 'http//localhost:3000'
-    //     },
-    //         {
-    //             body: "Here is a new string"
-    //         }).as('apiCheck')
-    //     cy.wait('@apiCheck').then((interception) => {
-    //         assert.isNotNull(interception.response.body, '1st API call has data')
-    //     })
-    // })
+    // const movie = {
+    //     "movie": {
+    //         "id": 581392,
+    //         "title": "Peninsula",
+    //         "poster_path": "https://image.tmdb.org/t/p/original//sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
+    //         "backdrop_path": "https://image.tmdb.org/t/p/original//gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
+    //         "release_date": "2020-07-15",
+    //         "overview": "A soldier and his team battle hordes of post-apocalyptic zombies in the wastelands of the Korean Peninsula.",
+    //         "genres": [
+    //             "Action",
+    //             "Horror",
+    //             "Thriller"
+    //         ],
+    //         "budget": 17000000,
+    //         "revenue": 35878266,
+    //         "runtime": 114,
+    //         "tagline": "Escape The Apocalypse",
+    //         "average_rating": 7
+    //     }
+    // }
+    it('should get all movies data upon request', () => {
+        cy.visit('http://localhost:3000/')
+        cy.intercept('/', { fixture: "test_films.js" })
+        cy.get(".mainCoverImage")//.should('have.css')
+
+    })
+
+    it('should get movie data upon request', () => {
+
+        cy.intercept('/581392', { fixture: "test_movie.js" })
+    })
 })
 describe('As a user', () => {
     beforeEach('go to site', () => {

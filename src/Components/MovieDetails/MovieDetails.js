@@ -3,7 +3,7 @@ import './MovieDetails.css';
 import { FaClock } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 import { FaArrowAltCircleLeft } from 'react-icons/fa'
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 
 const MovieDetails = ({ film }) => {
@@ -38,10 +38,12 @@ const MovieDetails = ({ film }) => {
                 <h3 className='overview'>{overview}</h3>
                 <div className='bottom-row'>
                     <div className='small-specs-box'>
-                        <p>Budget: ${numberFormat.format(budget)}</p>
-                        <p>Revenue: ${numberFormat.format(revenue)}</p>
+                        <p>Budget: {budget > 0 ? '$' + numberFormat.format(budget)
+                            : 'N/A'}</p>
+                        <p>Revenue: {revenue > 0 ? '$' + numberFormat.format(revenue)
+                            : 'N/A'}</p>
                     </div>
-                    <div className='small-specs-box'><h4>Release Date: <br/>{formatDate(release_date)}</h4></div>
+                    <div className='small-specs-box'><h4>Release Date: <br />{formatDate(release_date)}</h4></div>
                 </div>
                 <div>
                     <Link to='/' style={{ textDecoration: 'none' }}><div className="backArrow">
