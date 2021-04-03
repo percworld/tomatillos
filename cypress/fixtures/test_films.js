@@ -1,6 +1,14 @@
 {
     "movies": [
         {
+            "id": 581392,
+            "poster_path": "https://image.tmdb.org/t/p/original//sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
+            "backdrop_path": "https://image.tmdb.org/t/p/original//gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
+            "title": "Peninsula",
+            "average_rating": 7,
+            "release_date": "2020-07-15"
+        },
+        {
             "id": 694919,
             "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
             "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
@@ -31,14 +39,7 @@
             "title": "Ava",
             "average_rating": 4.875,
             "release_date": "2020-07-02"
-        },
-        {
-            "id": 581392,
-            "poster_path": "https://image.tmdb.org/t/p/original//sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
-            "backdrop_path": "https://image.tmdb.org/t/p/original//gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
-            "title": "Peninsula",
-            "average_rating": 7,
-            "release_date": "2020-07-15"
         }
+
     ]
 }
