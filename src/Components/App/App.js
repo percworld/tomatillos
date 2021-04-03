@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   handleSearchEntry = event => {
+    // if not a number - not empty - should be covered with proptypes
     this.setState({ searchField: event.target.value });
   }
 

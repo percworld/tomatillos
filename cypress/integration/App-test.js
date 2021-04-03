@@ -1,33 +1,30 @@
 
-describe('Rancid Tomotillo', () => {
+describe('Rancid Tomatillo', () => {
     beforeEach(() => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'test_movie.js' })
             .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'test_films.js' })
             .visit('http://localhost:3000/')
-    })
-    it('displays the home page', () => {
-        cy.get("header").contains("h4", "RANCID")
+    });
+
+    it('Should display the home page and navigation bar', () => {
+        cy.get('header').contains('h4', 'RANCID TOMATILLOS')
+            .get('img').should('have.class', 'tomato')
             .get('.home').should('be.visible').and('have.class', 'nav-btn')
             .get('.nav-btn').should('be.visible').contains('PROFILE')
             .get('.gridDisplay').children().should('have.class', 'movie')
+    });
 
-    })
     it('Should display all movies', () => {
         cy.get('.gridDisplay')
             .get('.movie').children()
             .should('exist').and('have.attr', 'href')
     });
-    it('Should select a single movie', () => {
-        cy.get('.gridDisplay')
-            .get('.movie')
-            .first().click()
-    })
-    it('can display movie details route', () => {
-        cy.get(".mainCoverImage").eq(2).click()
+
+    it('Should select a single movie and change URL path', () => {
+        cy.get('.mainCoverImage').eq(2).click()
             .url().should('include', '/337401')
-        //.get('.small-specs-box').contains('h4', "September")
-        //.get('.specs-box').contains('82')
-    })
+    });
+
     it('Should display all movie details', () => {
         cy.get('.gridDisplay')
             .get('.movie')
@@ -42,49 +39,44 @@ describe('Rancid Tomotillo', () => {
             .get('p').contains('$35,878,266')
             .get('h4').contains('July 14, 2020')
     });
+
     it('Should have a functional back button', () => {
         cy.get('.gridDisplay')
             .get('.movie')
             .first().click()
-            .get('.backArrow').children().should('have.length', '2')
+            .get('.backArrow').click()
+            .get('.gridDisplay')
     });
-    it('Should see a navigation bar', () => {
-        cy.get('header')
-            .get('h4').contains('RANCID TOMATILLOS')
-            .get('img').should('have.class', 'tomato')
-            .get('button').should('have.class', 'nav-btn')
-    });
+
     it('Should have a search bar', () => {
         cy.get('form')
             .get('input')
             .should('exist')
     });
+
     it('Should execute a movie search', () => {
         cy.get('input[type=text]').type('Peninsula')
             .should('have.value', 'Peninsula')
-            .get(".submit-btn").click()
-            .get('.movie')
-            .first().click()
+            .get('.submit-btn').click()
+            .get('.movie').children()
+            .get('img').should('have.attr', 'alt')
     });
 
-    it('should handle searchField casetypes', () => {
-        cy.get('input[type=text]').type('rogue')
-            .should('have.value', 'rogue')
-            .get(".submit-btn").click()
-        cy.get(".mainCoverImage").first().click()
-        cy.url().should('include', '/')
-    })
+    it('Should handle searchField casetypes', () => {
+        cy.get('input[type=text]').type('ROGUE')
+            .should('have.value', 'ROGUE')
+            .get('.submit-btn').click()
+            .get('.mainCoverImage').first().click()
+    });
 
-
-    it('should go back to main view by clicking go Back button', () => {
+    it('should go back to main view by clicking go back button', () => {
         cy.get('input[type=text]').type('peninsula')
-            .get(".submit-btn").click()
-        cy.get(".mainCoverImage").first().click()
-        cy.url().should('include', '/581392')
-        cy.get('.backArrow').click()
-        cy.url().should('include', '/')
-
-    })
+            .get('.submit-btn').click()
+            .get('.mainCoverImage').first().click()
+            .url().should('include', '/581392')
+            .get('.backArrow').click()
+            .get('.gridDisplay')
+    });
 
 })
 
@@ -94,10 +86,10 @@ describe('error handling', () => {
         //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'error_films.js' })
         //     .visit('http://localhost:3000/')
     })
-    it('shows error screen when an error is present', () => {
-        cy.fixture("error_movie.js").then((id) => {
-            cy.intercept('GET', `http://localhost:3001/581393`, id)
-        })
-        cy.visit('http://localhost:3000/581393')
-    })
+    // it('shows error screen when an error is present', () => {
+    //     cy.fixture("error_movie.js").then((id) => {
+    //         cy.intercept('GET', `http://localhost:3001/581393`, id)
+    //     })
+    //     cy.visit('http://localhost:3000/')
+    // })
 })
