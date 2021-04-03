@@ -22,10 +22,17 @@ describe('Rancid Tomotillo', () => {
             .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'test_films.js' })
             .visit('http://localhost:3000/')
     })
+    it('displays the home page', () => {
+        cy.get("header").contains("h4", "RANCID")
+            .get('.home').should('be.visible').and('have.class', 'nav-btn')
+            .get('.nav-btn').should('be.visible').contains('PROFILE')
+            .get('.gridDisplay').children().should('have.class', 'movie')
+
+    })
     it('Should display all movies', () => {
         cy.get('.gridDisplay')
-            .get('.movie')
-            .should('exist')
+            .get('.movie').children()
+            .should('exist').and('have.attr', 'href')
     });
     it('Should select a single movie', () => {
         cy.get('.gridDisplay')
@@ -50,7 +57,7 @@ describe('Rancid Tomotillo', () => {
         cy.get('.gridDisplay')
             .get('.movie')
             .first().click()
-            .get('.backArrow').click()
+            .get('.backArrow').children().should('have.length', '2')
     });
     it('Should see a navigation bar', () => {
         cy.get('header')
@@ -69,34 +76,24 @@ describe('Rancid Tomotillo', () => {
             .get(".submit-btn").click()
             .get('.movie')
             .first().click()
-        it('should handle searchField casetypes', () => {
-            cy.get('input[type=text]').type('rOgUe')
-                .should('have.value', 'rogue')
-                .get(".submit-btn").click()
-            cy.get(".mainCoverImage").first().click()
-            cy.url().should('include', '/')
-        })
     });
-})
 
-describe('As a user', () => {
-    beforeEach('go to site', () => {
-        cy.visit('http://localhost:3000/')
+    it('should handle searchField casetypes', () => {
+        cy.get('input[type=text]').type('rogue')
+            .should('have.value', 'rogue')
+            .get(".submit-btn").click()
+        cy.get(".mainCoverImage").first().click()
+        cy.url().should('include', '/')
     })
-    it('displays the home page', () => {
-        cy.get("header").contains("h4", "RANCID")
-            .get('.gridDisplay')
-    })
-
 
 
     it('can display movie details', () => {
         cy.get('input[type=text]').type('mulan')
             .get(".submit-btn").click()
-        cy.get(".mainCoverImage").first().click()
-        cy.url().should('include', '/694919')
+            .get(".mainCoverImage").first().click()
+        cy.url().should('include', '/337401')
         cy.get('.small-specs-box').contains('h4', "September")
-        cy.get('.specs-box').contains('82')
+            .get('.specs-box').contains('82')
     })
 
     it('should go back to main view by clicking go Back button', () => {
@@ -110,3 +107,4 @@ describe('As a user', () => {
     })
 
 })
+
