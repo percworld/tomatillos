@@ -1,21 +1,4 @@
 
-// describe('response check', () => {
-
-//     beforeEach('Stub and visit', () => {
-//         cy.intercept('/', { fixture: "test_films.js" })
-//             .intercept('/581392', { fixture: "test_movie.js" })
-//         cy.visit('http://localhost:3000/')
-//     })
-
-//     it('should get all movies data upon request', () => {
-//         cy.get(".mainCoverImage").eq(0)
-
-//     })
-
-//     it('should get movie data upon request', () => {
-
-//     })
-// })
 describe('Rancid Tomotillo', () => {
     beforeEach(() => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'test_movie.js' })
@@ -38,6 +21,12 @@ describe('Rancid Tomotillo', () => {
         cy.get('.gridDisplay')
             .get('.movie')
             .first().click()
+    })
+    it('can display movie details route', () => {
+        cy.get(".mainCoverImage").eq(2).click()
+            .url().should('include', '/337401')
+        //.get('.small-specs-box').contains('h4', "September")
+        //.get('.specs-box').contains('82')
     })
     it('Should display all movie details', () => {
         cy.get('.gridDisplay')
@@ -86,15 +75,6 @@ describe('Rancid Tomotillo', () => {
         cy.url().should('include', '/')
     })
 
-
-    it('can display movie details', () => {
-        cy.get('input[type=text]').type('mulan')
-            .get(".submit-btn").click()
-            .get(".mainCoverImage").first().click()
-        cy.url().should('include', '/337401')
-        cy.get('.small-specs-box').contains('h4', "September")
-            .get('.specs-box').contains('82')
-    })
 
     it('should go back to main view by clicking go Back button', () => {
         cy.get('input[type=text]').type('peninsula')
