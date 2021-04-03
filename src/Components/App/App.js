@@ -66,6 +66,8 @@ class App extends Component {
     return (
       <div className="main">
         <Header />
+        {!this.state.error && !this.state.films.length &&
+        <h2>Loading...</h2>}
         <Switch>
           <Route exact path="/"
             render={() => (
