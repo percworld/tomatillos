@@ -16,3 +16,4 @@ const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
     )
 }
 export default Searchbar;
+

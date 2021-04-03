@@ -54,8 +54,7 @@ class App extends Component {
       const titleArray = movie.title.toLowerCase().split(' ')
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
-    this.setState({ films: filteredMovies })
-    this.state.searchField = '';
+    this.setState({ films: filteredMovies, searchField: '' })
     if (filteredMovies.length < 1) {
       console.log('Oh no, there are no movies with that title!')
     }
