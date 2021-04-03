@@ -79,17 +79,3 @@ describe('Rancid Tomatillo', () => {
     });
 
 })
-
-describe('error handling', () => {
-    beforeEach(() => {
-        // cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'error_movie.js' })
-        //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'error_films.js' })
-        //     .visit('http://localhost:3000/')
-    })
-    // it('shows error screen when an error is present', () => {
-    //     cy.fixture("error_movie.js").then((id) => {
-    //         cy.intercept('GET', `http://localhost:3001/581393`, id)
-    //     })
-    //     cy.visit('http://localhost:3000/')
-    // })
-})
