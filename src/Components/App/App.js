@@ -76,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <Header />
+        <Header getMovies={this.getMovies} />
         <Switch>
           <Route exact path="/"
             render={() => (
