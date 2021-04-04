@@ -32,4 +32,8 @@ a {
         position: relative;
     }
 
+    .footer-name {
+        font-size: large;
+    }
+
   }

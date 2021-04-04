@@ -57,7 +57,7 @@ class App extends Component {
     })
     this.setState({ films: filteredMovies, searchField: '' })
     if (filteredMovies.length < 1) {
-      console.log('Oh no, there are no movies with that title!')
+      return (this.setState({error: 'Looks like we can\'t find a movie by that title - try again!'}))
     }
   }
 
@@ -66,8 +66,8 @@ class App extends Component {
     return (
       <div className="main">
         <Header />
-        {!this.state.error && !this.state.films.length &&
-        <h2>Loading...</h2>}
+        {/* {!this.state.error && !this.state.films.length &&
+        <h2>Loading...</h2>} */}
         <Switch>
           <Route exact path="/"
             render={() => (
@@ -77,6 +77,7 @@ class App extends Component {
                   showFeatured={this.showFeatured}
                   handleSearchEntry={this.handleSearchEntry}
                   searchByWord={this.searchByWord}
+                  disabled={!this.state.value}
                 /> : this.showError()
             )} />
           <Route path="/:id" render={() => (

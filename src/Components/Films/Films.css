@@ -24,10 +24,9 @@
 }
 
 
-
 @media screen and (max-width: 600px) {
   .gridDisplay {
-    margin: 5em;
+    margin: 2em;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 1.5em;

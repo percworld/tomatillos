@@ -20,7 +20,7 @@ const MovieDetails = ({ film }) => {
     return (
         <div>
             <section className='backdrop-container'>
-                <img className='backdrop' src={backdrop_path}></img>
+                <img className='backdrop' src={backdrop_path} alt='Movie Backdrop'></img>
             </section>
             <section className='movie-details-container'>
                 <div className='cover-container'>
@@ -50,7 +50,7 @@ const MovieDetails = ({ film }) => {
                         <div className='small-specs-box'><h4>Release Date: <br />{formatDate(release_date)}</h4></div>
                     </div>
                     <div>
-                        <Link to='/' style={{ textDecoration: 'none' }}><div className="backArrow">
+                        <Link to='/'><div className="backArrow">
                             <FaArrowAltCircleLeft />
                             <h6 className="go-back" >Go Back</h6></div>
                         </Link>
