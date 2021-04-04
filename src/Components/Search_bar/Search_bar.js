@@ -1,5 +1,6 @@
 import React from 'react';
 import './search_bar.css';
+import PropTypes from 'prop-types';
 
 const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
     return (
@@ -17,3 +18,7 @@ const Searchbar = ({ handleSearchEntry, searchByWord, searchField }) => {
 }
 export default Searchbar;
 
+Searchbar.propTypes = {
+    type: PropTypes.string,
+    value: PropTypes.string
+}

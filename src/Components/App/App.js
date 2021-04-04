@@ -25,7 +25,14 @@ class App extends Component {
       .catch(error => this.setState({ error: error }))
   }
 
+  getMovies() {
+    getData()
+      .then(response => this.setState({ films: response.movies }))
+      .catch(error => this.setState({ error: error }))
+  }
+
   showFeatured = (id) => {
+    this.getMovies();
     getMovie(id)
       .then(response => this.setState({ featuredFilm: response.movie }))
       .catch(error => this.setState({ error: error }))
@@ -34,18 +41,25 @@ class App extends Component {
   showError() {
     return (
       <article className="error">
-        <h2>Sorry something went wrong - please reload the page.</h2>
-        <Link to='/'><div className="backArrow">
+        <h3>{this.state.error}</h3>
+        <Link to='/'><div className="backArrow" onClick={() => this.setState({ error: null })}>
           <FaArrowAltCircleLeft />
-          <h6 className="go-back" >Go Home</h6>
+          <h6 className="go-back" >See All Movies</h6>
         </div></Link>
       </article>
     )
   }
 
   handleSearchEntry = event => {
-    // if not a number - not empty - should be covered with proptypes
     this.setState({ searchField: event.target.value });
+  }
+
+  validateSearch(filteredMovies) {
+    if (this.state.searchField.length) {
+      if (filteredMovies.length < 1) {
+        this.setState({ error: 'Sorry, there are no movies with that title' })
+      } else this.setState({ films: filteredMovies, searchField: '' })
+    } else this.setState({ error: 'Please enter a movie name' })
   }
 
   searchByWord = event => {
@@ -55,14 +69,11 @@ class App extends Component {
       const titleArray = movie.title.toLowerCase().split(' ')
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
-    this.setState({ films: filteredMovies, searchField: '' })
-    if (filteredMovies.length < 1) {
-      console.log('Oh no, there are no movies with that title!')
-    }
+    this.validateSearch(filteredMovies)
+
   }
 
   render() {
-
     return (
       <div className="main">
         <Header />
