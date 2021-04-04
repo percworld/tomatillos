@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { FaExclamationCircle, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { FaExclamationCircle } from 'react-icons/fa';
 
 class App extends Component {
   constructor() {
@@ -36,10 +36,6 @@ class App extends Component {
       <article className="error" >
         <FaExclamationCircle/>
         <h2>Sorry something went wrong - please reload the page.</h2>
-        {/* <Link to='/'><div className="backArrow">
-          <FaArrowAltCircleLeft />
-          <h6 className="go-back" >Go Home</h6>
-        </div></Link> */}
       </article>
     )
   }
