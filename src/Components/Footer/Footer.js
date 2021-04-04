@@ -1,12 +1,20 @@
 import React from 'react';
 import './Footer.css';
+import { FaGit, FaGithub } from 'react-icons/fa'; 
 
 const Footer = () => {
     return (
-        <footer className='text'>
-            <a href="https://github.com/percworld">Chuck Morris Github</a>
-            <a href="https://github.com/jgiwinski">Julia Iwinski Github</a>
+        <footer className='footer-container'>
+            <div className='footer-name'>
+                <FaGithub />
+                <a href="https://github.com/percworld">Chuck Morris</a>
+            </div>
+            <div className='footer-name'>
+                <FaGithub />
+                <a href="https://github.com/jgiwinski">Julia Iwinski</a>
+            </div>
         </footer>
     )
 }
+
 export default Footer;
