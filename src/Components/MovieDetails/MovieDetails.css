@@ -7,12 +7,12 @@
 
 .backdrop-container {
     opacity: .5;
-    background-color: linear-gradient(to top, #000000 0%, rgba(255, 0, 0, 0));
+    background-color: linear-gradient(to top, rgb(4, 7, 31) 0%, rgb(4, 7, 31));
 }
 
 .backdrop-container:after {
     opacity: .5;
-    background-color: linear-gradient(to top, #000000 0%, rgba(255, 0, 0, 0));
+    background-color: linear-gradient(to top, rgb(4, 7, 31) 0%, rgb(4, 7, 31));
 }
 
 .movie-details-container {
