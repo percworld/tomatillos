@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { FaArrowAltCircleLeft } from 'react-icons/fa';
+import { FaExclamationCircle, FaArrowAltCircleLeft } from 'react-icons/fa';
 
 class App extends Component {
   constructor() {
@@ -33,12 +33,13 @@ class App extends Component {
 
   showError() {
     return (
-      <article className="error">
+      <article className="error" >
+        <FaExclamationCircle/>
         <h2>Sorry something went wrong - please reload the page.</h2>
-        <Link to='/'><div className="backArrow">
+        {/* <Link to='/'><div className="backArrow">
           <FaArrowAltCircleLeft />
           <h6 className="go-back" >Go Home</h6>
-        </div></Link>
+        </div></Link> */}
       </article>
     )
   }
@@ -66,8 +67,8 @@ class App extends Component {
     return (
       <div className="main">
         <Header />
-        {/* {!this.state.error && !this.state.films.length &&
-        <h2>Loading...</h2>} */}
+        {!this.state.error && !this.state.films.length &&
+        <h2>Loading...</h2>}
         <Switch>
           <Route exact path="/"
             render={() => (

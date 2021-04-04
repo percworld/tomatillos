@@ -76,6 +76,10 @@
     margin: .75em;
 }
 
+p, h4 {
+    text-align: center;
+}
+
 .bottom-row {
     width: 90%;
     display: flex; 
