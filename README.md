@@ -19,4 +19,4 @@
 [Julia Iwinski -](https://github.com/jgiwinski)
 [Chuck Morris -](https://github.com/percworld)
 
-"Being new to React Router 5, this has been a big leap in my progression as a product developer.  Working to produce dynamic lifestyle-related rendering with components has been very eye-opening.  We now know when state is necessary and how to efficiently work with prototypes of our properties.  We also used Cypress testing and implemented fixtures to intercept requests.  This is a huge win for testing in the field without racking up fees on the job."  -Chuck
+"Being new to React Router 5, this has been a big leap in my progression as a product developer.  Working to produce dynamic lifestyle-related rendering with components has been very eye-opening.  We now know when state is necessary and how to efficiently work with prototypes of our properties.  We also used Cypress testing and implemented fixtures to intercept requests.  This is a huge win for stubbing potential response errors and for testing in the field without racking up fees on the job."  -Chuck
