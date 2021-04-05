@@ -89,7 +89,7 @@ describe('Error Handling', () => {
             statusCode: 404,
             body: 'failure!'
         })
-        cy.visit('http://localhost:3000/581393').get('.text').children().contains('a')
+        cy.visit('http://localhost:3000/581393').get('a')
     });
 
     it('Should show the descriptive error screen when field is left empty', () => {
