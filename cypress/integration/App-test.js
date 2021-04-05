@@ -90,11 +90,11 @@ describe('error handling', () => {
             statusCode: 404,
             body: 'failure!'
         })
-        cy.visit('http://localhost:3000/581393')
+        cy.visit('http://localhost:3000/581393').get('.text').children().contains('a')
     })
     it('shows descriptive error screen when field is left empty', () => {
         cy.get('input[type=text]')
-            //.type('').should('have.value', '')
+            .should('have.value', '')
             .get('.submit-btn').click()
         cy.get('h3').contains('Please enter a movie name')
     })
