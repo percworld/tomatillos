@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Films from '../Films/Films';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { FaArrowAltCircleLeft } from 'react-icons/fa';
+import { FaExclamationCircle } from 'react-icons/fa';
 
 class App extends Component {
   constructor() {
@@ -70,7 +70,6 @@ class App extends Component {
       return splitString.find(word => titleArray.includes(word.toLowerCase()))
     })
     this.validateSearch(filteredMovies)
-
   }
 
   render() {
@@ -86,6 +85,7 @@ class App extends Component {
                   showFeatured={this.showFeatured}
                   handleSearchEntry={this.handleSearchEntry}
                   searchByWord={this.searchByWord}
+                  disabled={!this.state.value}
                 /> : this.showError()
             )} />
           <Route path="/:id" render={() => (

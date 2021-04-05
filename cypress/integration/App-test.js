@@ -106,3 +106,4 @@ describe('Error Handling', () => {
         cy.get('h3').contains('Sorry, there are no movies with that title.')
     });
 })
+
