@@ -1,4 +1,3 @@
-
 describe('Rancid Tomatillo', () => {
     beforeEach(() => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'test_movie.js' })
@@ -77,19 +76,33 @@ describe('Rancid Tomatillo', () => {
             .get('.backArrow').click()
             .get('.gridDisplay')
     });
-
 })
 
-describe('error handling', () => {
+describe('Error Handling', () => {
     beforeEach(() => {
-        // cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'error_movie.js' })
-        //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'error_films.js' })
-        //     .visit('http://localhost:3000/')
-    })
-    // it('shows error screen when an error is present', () => {
-    //     cy.fixture("error_movie.js").then((id) => {
-    //         cy.intercept('GET', `http://localhost:3001/581393`, id)
-    //     })
-    //     cy.visit('http://localhost:3000/')
-    // })
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'test_films.js' })
+            .visit('http://localhost:3000/')
+    });
+
+    it('Should show the error screen when an error is present', () => {
+        cy.intercept('GET', `https://rancid-tomatillos.herokuapp.com/api/v2/movies/581393`, {
+            statusCode: 404,
+            body: 'failure!'
+        })
+        cy.visit('http://localhost:3000/581393').get('.text').children().contains('a')
+    });
+
+    it('Should show the descriptive error screen when field is left empty', () => {
+        cy.get('input[type=text]')
+            .should('have.value', '')
+            .get('.submit-btn').click()
+        cy.get('h3').contains('Please try again and enter a title.')
+    });
+
+    it('Should show the error screen when field has value but movie is not present', () => {
+        cy.get('input[type=text]')
+            .type('avalanche').should('have.value', 'avalanche')
+            .get('.submit-btn').click()
+        cy.get('h3').contains('Sorry, there are no movies with that title.')
+    });
 })
