@@ -1,6 +1,6 @@
+import './App.css';
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import './App.css';
 import { getData, getMovie } from '../../utilities.js';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

@@ -1,4 +1,3 @@
-
 describe('Rancid Tomatillo', () => {
     beforeEach(() => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', { fixture: 'test_movie.js' })
@@ -77,7 +76,6 @@ describe('Rancid Tomatillo', () => {
             .get('.backArrow').click()
             .get('.gridDisplay')
     });
-
 })
 
 describe('error handling', () => {
