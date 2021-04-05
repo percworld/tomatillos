@@ -23,8 +23,8 @@ Rancid Tomatillos is a web app that retrieves API data and displays recent and u
 
 ## Functionality
 Upon visiting the app the user will see a home page that displays the cover art for a list of movies. 
- 
-<img src="https://gyazo.com/785e60a02cd3eaceda728604c0e63ceb.gif">
+
+<img src="https://gyazo.com/515260160027a64b008573a3ada099ea.gif">
 
 The user can click on a movie and they will be taken to a new page showing all the details for the relevant movie. From this view the user can click either the 'HOME' button or the 'GO BACK' button to return to the main page. Additionally, the user can click the 'back arrow' on their browser to return to the home page. 
 
