@@ -18,5 +18,5 @@ Movie.propTypes = {
     image: PropTypes.string,
     poster: PropTypes.string,
     rating: PropTypes.number,
-    showFeatured: PropTypes.func
+
 }

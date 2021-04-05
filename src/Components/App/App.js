@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   showFeatured = (id) => {
-    this.getMovies();
+    if (!this.state.error) this.getMovies();
     getMovie(id)
       .then(response => this.setState({ featuredFilm: response.movie }))
       .catch(error => this.setState({ error: error }))
@@ -89,8 +89,10 @@ class App extends Component {
                 /> : this.showError()
             )} />
           <Route path="/:id" render={() => (
-            this.state.featuredFilm &&
-            <MovieDetails film={this.state.featuredFilm} />)
+            !this.state.error ?
+              this.state.featuredFilm &&
+              <MovieDetails film={this.state.featuredFilm}
+              /> : this.showError())
           } />
         </Switch>
         <Footer />
