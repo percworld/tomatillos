@@ -17,6 +17,5 @@ Movie.propTypes = {
     id: PropTypes.number,
     image: PropTypes.string,
     poster: PropTypes.string,
-    rating: PropTypes.number,
-
+    rating: PropTypes.number
 }
