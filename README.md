@@ -1,6 +1,6 @@
 ## Rancid Tomatillos
 ---
----
+
 ### In this React Router Application, the User is able to browse a movie catalog using the display and search bar to filter movies. 
 
 ### Browse, Search and Click on the movie you would like to see all the deatils for. 
