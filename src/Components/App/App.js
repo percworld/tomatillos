@@ -57,9 +57,9 @@ class App extends Component {
   validateSearch(filteredMovies) {
     if (this.state.searchField.length) {
       if (filteredMovies.length < 1) {
-        this.setState({ error: 'Sorry, there are no movies with that title' })
+        this.setState({ error: 'Sorry, there are no movies with that title.' })
       } else this.setState({ films: filteredMovies, searchField: '' })
-    } else this.setState({ error: 'Please enter a movie name' })
+    } else this.setState({ error: 'Please try again and enter a title.' })
   }
 
   searchByWord = event => {

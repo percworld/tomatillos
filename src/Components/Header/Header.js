@@ -14,7 +14,7 @@ const Header = ({ getMovies }) => {
                 <Link to='/'><button className="nav-btn home" onClick={() => getMovies}>HOME</button></Link>
                 <button className="nav-btn">PROFILE</button>
             </div>
-        </header >
+        </header>
     )
 }
 

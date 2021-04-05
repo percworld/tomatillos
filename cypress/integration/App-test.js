@@ -78,30 +78,31 @@ describe('Rancid Tomatillo', () => {
     });
 })
 
-describe('error handling', () => {
+describe('Error Handling', () => {
     beforeEach(() => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'test_films.js' })
             .visit('http://localhost:3000/')
-    })
-    it('shows error screen when an error is present', () => {
+    });
+
+    it('Should show the error screen when an error is present', () => {
         cy.intercept('GET', `https://rancid-tomatillos.herokuapp.com/api/v2/movies/581393`, {
             statusCode: 404,
             body: 'failure!'
         })
         cy.visit('http://localhost:3000/581393').get('.text').children().contains('a')
-    })
-    it('shows descriptive error screen when field is left empty', () => {
+    });
+
+    it('Should show the descriptive error screen when field is left empty', () => {
         cy.get('input[type=text]')
             .should('have.value', '')
             .get('.submit-btn').click()
-        cy.get('h3').contains('Please enter a movie name')
-    })
-    it('shows error screen when field has value but movie is not present', () => {
+        cy.get('h3').contains('Please try again and enter a title.')
+    });
+
+    it('Should show the error screen when field has value but movie is not present', () => {
         cy.get('input[type=text]')
             .type('avalanche').should('have.value', 'avalanche')
             .get('.submit-btn').click()
-        cy.get('h3').contains('Sorry, there are no movies with that title')
-    })
-
-
+        cy.get('h3').contains('Sorry, there are no movies with that title.')
+    });
 })
