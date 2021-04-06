@@ -23,20 +23,18 @@ Rancid Tomatillos is a web app that retrieves API data and displays recent and u
 
 ## Functionality
 Upon visiting the app the user will see a home page that displays the cover art for a list of movies. 
-
-<img src="https://gyazo.com/515260160027a64b008573a3ada099ea.gif">
+![main scroll](https://github.com/percworld/tomatillos/blob/main/img/mainScroll.gif)
 
 The user can click on a movie and they will be taken to a new page showing all the details for the relevant movie. From this view the user can click either the 'HOME' button or the 'GO BACK' button to return to the main page. Additionally, the user can click the 'back arrow' on their browser to return to the home page. 
 
-<img src="https://gyazo.com/34895a549a98219edb24fc21ddcfcc32.gif">
+![details view](https://github.com/percworld/tomatillos/blob/main/img/detailsView.gif)
 
 The user is given the option to filter movies by the title at the top of the app. Once the user types in a movie title and clicks submit the app will return all the movie titles with the key words the user typed in. 
-
-<img src="https://gyazo.com/00eb9a9b517e6386c0a31cb6976b8e1a.gif">
+![search bar](https://github.com/percworld/tomatillos/blob/main/img/searchBar.gif)
 
 If the user types in a movie title that doesn't exist or they leave the input field blank then the app will display an error message encouraging the user to try again. 
+![error message](https://github.com/percworld/tomatillos/blob/main/img/errorMessage.gif)
 
-<img src="https://gyazo.com/271aa0c2b684cb1aaf40d13a721ca428.gif">
 
 ## Responsiveness 
 **DESKTOP** 
