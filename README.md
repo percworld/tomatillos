@@ -32,7 +32,8 @@ The user can click on a movie and they will be taken to a new page showing all t
 The user is given the option to filter movies by the title at the top of the app. Once the user types in a movie title and clicks submit the app will return all the movie titles with the key words the user typed in. 
 ![search bar](https://github.com/percworld/tomatillos/blob/main/img/searchBar.gif)
 
-If the user types in a movie title that doesn't exist or they leave the input field blank then the app will display an error message encouraging the user to try again. 
+If the user types in a movie title that doesn't exist or they leave the input field blank then the app will display an error message encouraging the user to try again.
+
 ![error message](https://github.com/percworld/tomatillos/blob/main/img/errorMessage.gif)
 
 
